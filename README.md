@@ -1,6 +1,6 @@
-# Nome do Projeto
+# PROJETO SISRAM
 
-Descrição breve do projeto.
+PROJETO DE REGISTRO DE ATESTADOS MÉDICOS PARA JUSTIFICAR FALTAS DE ALUNOS
 
 ## Descrição
 
