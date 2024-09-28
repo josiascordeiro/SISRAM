@@ -1,102 +1,73 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+<!DOCTYPE html> <!-- Declaração do tipo de documento HTML -->
+<html lang="pt-br"> <!-- Início do documento HTML com idioma definido como português do Brasil -->
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/2-a-ds.css">
-    <title>SISRAM</title>
+    <meta charset="UTF-8"> <!-- Definição do conjunto de caracteres como UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Configuração para responsividade em dispositivos móveis -->
+    <link rel="stylesheet" href="/css/2-a-ds.css"> <!-- Link para o arquivo CSS externo -->
+    <title>SISRAM</title> <!-- Título da página -->
 
     <style>
-        body{
-      width: 100%;
-      height: 100%;
-      margin: 0;
-      padding: 0; 
-    }
-    header{
-      background-color: rgb(53, 53, 255);
-    }
-    h1{
-      color: white;
-      background-color: rgb(53, 53, 255);
-      text-align: center;
-      font-size: 70px;
-    }
-    section{
-      align-items: center;
-      text-align: center;
-    }
-</style>
-
+        body {
+            width: 100%; <!-- Define a largura do corpo da página como 100% -->
+            height: 100%; <!-- Define a altura do corpo da página como 100% -->
+            margin: 0; <!-- Remove as margens do corpo da página -->
+            padding: 0; <!-- Remove o preenchimento do corpo da página -->
+        }
+        header {
+            background-color: rgb(53, 53, 255); <!-- Define a cor de fundo do cabeçalho como azul -->
+        }
+        h1 {
+            color: white; <!-- Define a cor do texto do título como branco -->
+            background-color: rgb(53, 53, 255); <!-- Define a cor de fundo do título como azul -->
+            text-align: center; <!-- Alinha o texto do título ao centro -->
+            font-size: 70px; <!-- Define o tamanho da fonte do título como 70 pixels -->
+        }
+    </style>
 </head>
 <body>
-    <h3>Lista do 2°A-DS</h3>
-    <p>Atestados Cadastrados no sistema</p>
+    <header>
+        <h1>SISRAM</h1> <!-- Título principal da página -->
+    </header>
+    <main>
+        <h3>Lista do 2°A-DS</h3> <!-- Subtítulo da página -->
+        <p>Atestados Cadastrados no sistema</p> <!-- Parágrafo explicativo -->
 
-            <table style="width: 50%">
-                        <thead>
-                                    <tr style="background-color: #ccc;">
-                                                <th>ID</th>
-                                                <th>Matrícula</th>
-                                                <th>Nome do Aluno</th>
-                                                <th>Curso</th>
-                                                <th>Turma</th>
-                                                <th>Data de Afastamento</th>
-                                                <th>Período</th>
-                                                <th>Imagem do Atestado</th>
-                                                <th>Ações</th>
-                                    </tr>
-                        </thead>
-                        <tbody>
-                            <!--                            cd C:\Users\josia\Dropbox\9998877665554433221100
-                            git remote set-url origin https://github.com/josiascordeiro/siram
-                            git push -u origin master-->
-                        <% if(!atestados2ads || atestados2ads.length == 0)
-                        {%>
-                                    <tr>
-                                                <td colspan="8">Nenhum Cliente Cadastrado</td>
-                                    </tr>
-                        <% } else { 
-                                     atestados2ads.forEach(function(atestados) { %>
-                                                <tr>
-                                                    <td><%= atestados.id %></td>
-                                                    <td><%= atestados.matricula %></td>
-                                                    <td><%= atestados.nome %></td>
-                                                    <td><%= atestados.curso %></td>
-                                                    <td><%= atestados.turma %></td>
-                                                    <td><%= atestados.data_afast %></td>
-                                                    <td><%= atestados.periodo %></td>
-                                                    <td><img src="<%= atestados.img_atest %>" alt="Atestado"></td>
-
-                                                    <td>
-                                                  
-                                                        <a href="/editar/<%= atestados.id %>">Editar</a> 
-                                                        <a href="/deletar/<%= atestados.id %>" onclick="return confirm('Deseja realmente excluir o atestado?')">Deletar</a>
-                                                       </td>
-                                                  
-                                                    
-
-                                                        
-                                                   
-                                                   
-                                                </tr>
-                                            <% }) 
-                                            }%>
-                                        </tbody>
-                                    </table>
-                              
-                        </tbody>
-
-            </table>
-    <footer>
-        <div class="links">
-            <div id="cont">
-             <button href="/login">Continuar</button>
-            </div>
-            <div id="volt">
-              <button href="/">Voltar</button>
-            </div>
-      </footer>
-
+        <table style="width: 50%"> <!-- Início da tabela com largura de 50% -->
+            <thead>
+                <tr style="background-color: #ccc;"> <!-- Linha de cabeçalho da tabela com fundo cinza claro -->
+                    <th>ID</th> <!-- Coluna para o ID -->
+                    <th>Matricula</th> <!-- Coluna para a matrícula -->
+                    <th>Nome do Aluno</th> <!-- Coluna para o nome do aluno -->
+                    <th>Curso</th> <!-- Coluna para o curso -->
+                    <th>Turma</th> <!-- Coluna para a turma -->
+                    <th>Data de Afastamento</th> <!-- Coluna para a data de afastamento -->
+                    <th>Período</th> <!-- Coluna para o período de afastamento -->
+                    <th>Imagem do Atestado</th> <!-- Coluna para a imagem do atestado -->
+                    <th>Ações</th> <!-- Coluna para ações (editar, excluir, etc.) -->
+                </tr>
+            </thead>
+            <tbody>
+                <% if (!atestados2ads || atestados2ads.length === 0) { %> <!-- Verifica se não há atestados cadastrados -->
+                    <tr>
+                        <td colspan="9">Nenhum Cliente Cadastrado</td> <!-- Mensagem exibida quando não há atestados -->
+                    </tr>
+                <% } else { %> <!-- Caso haja atestados cadastrados -->
+                    <% atestados2ads.forEach(function(atestado) { %> <!-- Itera sobre cada atestado -->
+                        <tr>
+                            <td><%= atestado.id %></td> <!-- Exibe o ID do atestado -->
+                            <td><%= atestado.matricula %></td> <!-- Exibe a matrícula do aluno -->
+                            <td><%= atestado.nome %></td> <!-- Exibe o nome do aluno -->
+                            <td><%= atestado.curso %></td> <!-- Exibe o curso do aluno -->
+                            <td><%= atestado.turma %></td> <!-- Exibe a turma do aluno -->
+                            <td><%= atestado.data_afast %></td> <!-- Exibe a data de afastamento -->
+                            <td><%= atestado.periodo %></td> <!-- Exibe o período de afastamento -->
+                            <td><img src="<%= atestado.img_atest %>" alt="Atestado"></td> <!-- Exibe a imagem do atestado -->
+                            <td><!-- Ações --></td> <!-- Coluna para ações (editar, excluir, etc.) -->
+                        </tr>
+                    <% }) %> <!-- Fim da iteração sobre os atestados -->
+                <% } %> <!-- Fim da verificação de atestados cadastrados -->
+            </tbody>
+        </table>
+    </main>
 </body>
 </html>
