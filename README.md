@@ -1,6 +1,6 @@
-# Nome do Projeto
+# PROJETO SISRAM
 
-Descrição breve do projeto.
+PROJETO DE REGISTRO DE ATESTADOS MÉDICOS PARA JUSTIFICAR FALTAS DE ALUNOS
 
 ## Descrição
 
@@ -15,12 +15,12 @@ Este projeto é uma aplicação web para gerenciar atestados de alunos. Ele perm
 
 1. Clone o repositório:
     ```sh
-    git clone https://github.com/josiascordeiro/siram.git
+    git clone https://github.com/josiascordeiro/SISRAM.git
     ```
 
 2. Navegue até o diretório do projeto:
     ```sh
-    cd siram
+    cd SISRAM
     ```
 
 3. Instale as dependências:
